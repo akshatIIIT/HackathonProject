@@ -17,11 +17,11 @@ To set up the platform locally:
 
 # Clone the repository:
 git clone 
-https://github.com/your-username/project-repo-name.git
+1:https://github.com/your-username/project-repo-name.git
 
-cd project-repo-name
+2:cd project-repo-name
 # Install dependencies (adjust for your project language/framework):
-npm install
+3:npm install
 # Start the application:
-npm start
+4:npm start
 ->Access the platform at: http://localhost:3000
