@@ -24,4 +24,6 @@ git clone
 3:npm install
 # Start the application:
 4:npm start
-->Access the platform at: http://localhost:3000
+
+## Access the platform at: 
+ http://localhost:{PORT}
