@@ -16,7 +16,9 @@ This project is an online platform designed to streamline the management, collab
 To set up the platform locally:
 
 # Clone the repository:
-git clone https://github.com/your-username/project-repo-name.git
+git clone 
+https://github.com/your-username/project-repo-name.git
+
 cd project-repo-name
 # Install dependencies (adjust for your project language/framework):
 npm install
