@@ -10,7 +10,7 @@ This platform addresses these issues by providing a structured and organized sol
 
 
 ## Overview
-This project is an online platform designed to streamline the management, collaboration, and showcasing of student projects. The platform serves as a centralized hub where students can collaborate, track progress, share resources, and showcase their innovative ideas from conception to completion.
+This project is an online platform designed to streamline the management, collaboration, and showcasing of student projects. Built using React.js and Tailwind CSS, the platform serves as a centralized hub where students can collaborate, track progress, share resources, and showcase their innovative ideas from conception to completion.
 
 ## Installation
 To set up the platform locally:
