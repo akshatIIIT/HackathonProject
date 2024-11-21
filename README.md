@@ -25,5 +25,6 @@ git clone
 # Start the application:
 4:npm start
 
-## Access the platform at: 
- http://localhost:{PORT}
+## View the Deployed Project at: 
+ https://hackathon-project-ajuv.vercel.app/
+ 
