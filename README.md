@@ -1,5 +1,8 @@
 ### Online Integrated Platform for Student Projects
 
+## View the Deployed Project at: 
+https://hackathon-project-ajuv.vercel.app/
+
 ## Problem Statement
 In the current academic landscape, there is a lack of a centralized platform for managing and showcasing student projects. This creates challenges such as:
 
@@ -24,7 +27,4 @@ git clone
 3:npm install
 # Start the application:
 4:npm start
-
-## View the Deployed Project at: 
- https://hackathon-project-ajuv.vercel.app/
  
