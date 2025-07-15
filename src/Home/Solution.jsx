@@ -1,7 +1,6 @@
 import React from 'react';
 
 const SolutionWriteUps = () => {
-  // Updated data for solutions
   const solutions = [
     {
       id: 1,
@@ -35,27 +34,26 @@ const SolutionWriteUps = () => {
       borderColor: 'border-green-500',
       gradient: 'bg-gradient-to-r from-green-400 to-teal-500',
     },
-    // Add more solutions as necessary
   ];
 
   return (
-    <div className="min-h-[50vh] bg-white flex flex-col justify-center items-center p-8 px-20">
+    <div className="min-h-[50vh] bg-white py-10 px-4 sm:px-8 lg:px-20">
       {/* Header */}
-      <div className="w-full mb-8 text-center">
-        <h2 className="text-2xl font-bold text-gray-800 flex items-center justify-center">
+      <div className="max-w-6xl mx-auto mb-10 text-center">
+        <h2 className="text-2xl sm:text-3xl font-bold text-gray-800 flex items-center justify-center">
           <span className="mr-2 text-blue-500">🚀</span> Highlighted Projects
         </h2>
-        <p className="text-lg text-gray-600 mt-4">
+        <p className="text-base sm:text-lg text-gray-600 mt-4">
           Discover groundbreaking projects that push the boundaries of innovation and collaboration.
         </p>
       </div>
 
-      {/* Solutions Cards */}
-      <div className="w-full grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+      {/* Cards */}
+      <div className="max-w-6xl mx-auto grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         {solutions.map((solution) => (
           <div
             key={solution.id}
-            className="p-6 bg-white border rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300"
+            className="p-6 bg-white border rounded-lg shadow-md hover:shadow-xl transition-all duration-300"
           >
             <div className="flex items-center mb-4">
               <div
@@ -68,14 +66,16 @@ const SolutionWriteUps = () => {
                 <p className="text-sm text-gray-600">{solution.description}</p>
               </div>
             </div>
-            <p className="text-gray-700">{solution.details}</p>
+            <p className="text-sm text-gray-700">{solution.details}</p>
           </div>
         ))}
       </div>
 
-      {/* View All Link */}
-      <div className="w-full mt-8 text-right">
-        <a href="#" className="text-blue-600 hover:text-blue-800 font-medium">→ Explore More</a>
+      {/* View More */}
+      <div className="max-w-6xl mx-auto mt-10 text-right">
+        <a href="#" className="text-blue-600 hover:text-blue-800 font-medium transition-colors">
+          → Explore More
+        </a>
       </div>
     </div>
   );
