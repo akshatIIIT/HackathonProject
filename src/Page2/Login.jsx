@@ -3,12 +3,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 
-// Initial users data
 const initialUsers = {
   "abhigyan23018@iiitd.ac.in": "12345",
   "user2@example.com": "password123",
   "user3@example.com": "mysecurepassword",
-  "akshat23063@iiitd.ac.in":"123456"
+  "akshat23063@iiitd.ac.in": "123456"
 };
 
 const Login = () => {
@@ -36,17 +35,17 @@ const Login = () => {
         toast.success('Registration successful! Redirecting to the main page...', { autoClose: 2000 });
         setIsRegister(false);
         setTimeout(() => {
-          localStorage.setItem('isLoggedIn', 'true'); // Set the login status
+          localStorage.setItem('isLoggedIn', 'true');
           navigate('/');
-        }, 2000); // Delay navigation to match toast duration
+        }, 2000);
       }
     } else {
       if (username in users && users[username] === password) {
         toast.success('Authentication successful. Redirecting to the main page...', { autoClose: 2000 });
         setTimeout(() => {
-          localStorage.setItem('isLoggedIn', 'true'); // Set the login status
+          localStorage.setItem('isLoggedIn', 'true');
           navigate('/');
-        }, 2000); // Delay navigation to match toast duration
+        }, 2000);
       } else {
         toast.error('Authentication failed. Please check your credentials.', { autoClose: 2000 });
       }
@@ -54,19 +53,19 @@ const Login = () => {
   };
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center px-40 overflow-hidden">
+    <div className="relative min-h-screen flex items-center justify-center px-4 sm:px-10 md:px-20 lg:px-40 overflow-hidden">
       <video autoPlay loop muted className="absolute inset-0 w-full h-full object-cover">
         <source src="vid-2.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
 
-      <div className="relative w-full max-w-sm p-6 bg-white rounded-2xl shadow-2xl h-[60vh] z-10">
+      <div className="relative w-full max-w-sm sm:max-w-md md:max-w-lg lg:max-w-md p-6 bg-white rounded-2xl shadow-2xl z-10">
         <div className="flex justify-center mb-4 mt-3">
-          <div className="w-32 h-32 rounded-full bg-gradient-to-r from-slate-300 via-slate-300 to-slate-200 flex items-center justify-center">
-            <span className="text-8xl">🐻‍❄️</span>
+          <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full bg-gradient-to-r from-slate-300 via-slate-300 to-slate-200 flex items-center justify-center">
+            <span className="text-5xl sm:text-6xl md:text-7xl">🐻‍❄️</span>
           </div>
         </div>
-        <h2 className="text-2xl font-semibold text-gray-800 mb-4 text-center">
+        <h2 className="text-xl sm:text-2xl font-semibold text-gray-800 mb-4 text-center">
           {isRegister ? 'Register' : 'Login'}
         </h2>
         <form onSubmit={handleSubmit}>
@@ -112,7 +111,7 @@ const Login = () => {
             {isRegister ? 'Register' : 'Login'}
           </button>
         </form>
-        <p className="text-center mt-4">
+        <p className="text-center mt-4 text-sm">
           {isRegister ? (
             <>
               Already have an account?{' '}
