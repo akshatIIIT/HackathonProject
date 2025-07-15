@@ -74,17 +74,16 @@ export class Testimonials extends PureComponent {
           {testimonials.concat(testimonials).map((item, index) => (
             <div
               key={index}
-              className="box flex items-center h-36 w-80 mx-4"
-              style={{ minWidth: '500px' }}
+              className="box flex items-center h-36 w-[90vw] sm:w-[400px] lg:w-[500px] mx-4"
             >
               <div
                 className="color-grid h-12 w-12 rounded-full mr-4"
                 style={{ background: item.color }}
               ></div>
-              <div className="text-left">
-                <p className="text-lg font-semibold">{item.name}</p>
-                <p className="text-sm text-gray-500">{item.handle}</p>
-                <p className="text-sm text-gray-700">{item.testimonial}</p>
+              <div className="text-left overflow-hidden">
+                <p className="text-lg font-semibold truncate">{item.name}</p>
+                <p className="text-sm text-gray-500 truncate">{item.handle}</p>
+                <p className="text-sm text-gray-700 line-clamp-2">{item.testimonial}</p>
               </div>
             </div>
           ))}
@@ -104,7 +103,7 @@ export class Testimonials extends PureComponent {
           }
 
           .marquee.paused {
-            animation-play-state: paused; /* Pauses the animation */
+            animation-play-state: paused;
           }
 
           .box {
@@ -121,7 +120,6 @@ export class Testimonials extends PureComponent {
 
           .box:hover {
             background-color: #f0f0f0;
-             /* Grey background on hover */
           }
 
           .color-grid {
