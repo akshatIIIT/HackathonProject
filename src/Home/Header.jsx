@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -13,55 +14,81 @@ const Header = () => {
   const handleLogout = () => {
     localStorage.setItem('isLoggedIn', 'false');
     setIsLoggedIn(false);
-    navigate('/'); // Redirect to the home page after logout
+    navigate('/');
   };
 
   return (
-    <header className="h-16 bg-transparent w-full flex items-center px-7 justify-between mt-4">
+    <header className="w-full bg-transparent px-6 py-4 flex items-center justify-between shadow-sm">
       {/* Logo */}
-      <div className="flex items-center ml-4">
-        <Link to="/">
-          <img src="logo-1.png" alt="Logo" className="h-16" />
-        </Link>
-      </div>
+      <Link to="/">
+        <img src="logo-1.png" alt="Logo" className="h-12" />
+      </Link>
 
-      {/* Navigation Menu */}
-      <nav className="hidden md:flex space-x-6 font-medium text-black ml-[15vw] text-[1.55vh] mr-36">
+      {/* Desktop Navigation */}
+      <nav className="hidden lg:flex space-x-6 font-medium text-black">
         <Link to="/" className="hover:text-gray-600">Home</Link>
         <Link to="/feed" className="hover:text-gray-600">Feed</Link>
         <Link to="/projects" className="hover:text-gray-600">My Projects</Link>
         <Link to="/community" className="hover:text-gray-600">Community</Link>
         <a href="mailto:Collab@work.ac.in" className="hover:text-gray-600">Contact</a>
-
       </nav>
 
-      {/* Header Actions */}
-      <div className="flex items-center space-x-4">
-        <Link to="/create" className="bg-black lg:flex hidden text-white px-4 py-1 rounded-xl h-10 hover:bg-gray-800 items-center justify-center font-semibold text-sm">
+      {/* Desktop Buttons */}
+      <div className="hidden lg:flex items-center space-x-4">
+        <Link to="/create" className="bg-black text-white px-4 py-2 rounded-xl hover:bg-gray-800 font-semibold text-sm">
           Create Post
         </Link>
-
-        {/* Login/Logout Button */}
         {isLoggedIn ? (
           <button
             onClick={handleLogout}
-            className="border border-red-300 px-6 py-1 rounded-lg hover:bg-red-500 hover:text-white hidden text-red-500 lg:flex font-semibold text-[12px]"
+            className="border border-red-300 px-4 py-2 rounded-lg hover:bg-red-500 hover:text-white text-red-500 font-semibold text-sm"
           >
             Logout
           </button>
         ) : (
-          <Link to="/login" className="text-black border border-gray-300 px-6 py-1 rounded-lg hover:bg-gray-100 hidden lg:flex font-semibold text-sm">
+          <Link to="/login" className="text-black border border-gray-300 px-4 py-2 rounded-lg hover:bg-gray-100 font-semibold text-sm">
             Login
           </Link>
         )}
       </div>
 
-      {/* Hamburger Menu for Mobile */}
-      <div className="lg:hidden flex items-center">
-        <button className="text-black">
+      {/* Mobile Hamburger */}
+      <div className="lg:hidden">
+        <button onClick={() => setMenuOpen(!menuOpen)}>
           <img src="ham.png" alt="Menu" className="h-8" />
         </button>
       </div>
+
+      {/* Mobile Dropdown Menu */}
+      {menuOpen && (
+        <div className="absolute top-16 left-0 w-full bg-white border-t border-gray-200 lg:hidden z-50 shadow-md">
+          <nav className="flex flex-col items-center py-4 space-y-4 font-medium text-black">
+            <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+            <Link to="/feed" onClick={() => setMenuOpen(false)}>Feed</Link>
+            <Link to="/projects" onClick={() => setMenuOpen(false)}>My Projects</Link>
+            <Link to="/community" onClick={() => setMenuOpen(false)}>Community</Link>
+            <a href="mailto:Collab@work.ac.in" onClick={() => setMenuOpen(false)}>Contact</a>
+            <Link to="/create" onClick={() => setMenuOpen(false)} className="bg-black text-white px-4 py-2 rounded-xl font-semibold">
+              Create Post
+            </Link>
+            {isLoggedIn ? (
+              <button
+                onClick={() => {
+                  handleLogout();
+                  setMenuOpen(false);
+                }}
+                className="text-red-500 border border-red-300 px-4 py-2 rounded-lg hover:bg-red-500 hover:text-white font-semibold"
+              >
+                Logout
+              </button>
+            ) : (
+              <Link to="/login" onClick={() => setMenuOpen(false)} className="border border-gray-300 px-4 py-2 rounded-lg font-semibold">
+                Login
+              </Link>
+            )}
+          </nav>
+        </div>
+      )}
     </header>
   );
 };
